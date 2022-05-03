@@ -12,6 +12,7 @@ pip3 install pycountry, pycountry_convert
 ### Input:
 **Correct** country names sperate by ', ' 
 
+
 For example:
 'Nigeria, Canada'
 
@@ -52,4 +53,5 @@ Europe
 ### References:
 - [https://stackoverflow.com/questions/55910004/get-continent-name-from-country-using-pycountry](https://stackoverflow.com/questions/55910004/get-continent-name-from-country-using-pycountry)
 
-
+### Updates
+- added multiple delimeters support for split (05/03/5022)   
