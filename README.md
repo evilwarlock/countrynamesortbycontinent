@@ -1,7 +1,7 @@
 # Sort the input contry names by continent and alphabetical order
 This script is to sort country names by continent and alphabetical order
 
-## Prerequites
+### Prerequites:
 - pycountry
 - pycountry_convert
 
@@ -9,7 +9,7 @@ This script is to sort country names by continent and alphabetical order
 pip3 install pycountry, pycountry_convert
 `
 
-## Input
+### Input:
 **Correct** country names sperate by ', ' 
 
 For example:
@@ -19,7 +19,7 @@ Incorrect input:
 ~~'nigeria, canada'~~
 
 
-## Output:
+### Output:
 
 ```
 North America
@@ -48,5 +48,8 @@ Europe
 ===============
 
 ```
+
+### References:
+- [https://stackoverflow.com/questions/55910004/get-continent-name-from-country-using-pycountry](https://stackoverflow.com/questions/55910004/get-continent-name-from-country-using-pycountry)
 
 
