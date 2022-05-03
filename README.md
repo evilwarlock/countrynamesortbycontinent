@@ -1,9 +1,45 @@
 # Sort the input contry names by continent as well as alphabetical order
 sort country names by continent and name order
 
+## Prerequites
+pycountry
+pycountry_convert
+'''
+pip3 install pycountry, pycountry_convert
+'''
+
 Input:
-contry names sperate by ','
+correct contry names sperate by ', ' 
+
+For example:
+'Nigeria, Canada'
 
 Output:
-contry names for mapcustomizer format (https://www.mapcustomizer.com/#) one contry per line
-or by continent
+'''
+North America
+===============
+Canada
+
+
+South America
+===============
+
+
+Asia
+===============
+
+
+Australia
+===============
+
+
+Africa
+===============
+Nigeria
+
+
+Europe
+===============
+'''
+
+
