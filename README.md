@@ -1,9 +1,55 @@
-# Sort the input contry names by continent as well as alphabetical order
-sort country names by continent and name order
+# Sort the input contry names by continent and alphabetical order
+This script is to sort country names by continent and alphabetical order
 
-Input:
-contry names sperate by ','
+### Prerequites:
+- pycountry
+- pycountry_convert
 
-Output:
-contry names for mapcustomizer format (https://www.mapcustomizer.com/#) one contry per line
-or by continent
+`
+pip3 install pycountry, pycountry_convert
+`
+
+### Input:
+**Correct** country names sperate by ', ' 
+
+For example:
+'Nigeria, Canada'
+
+Incorrect input:
+~~'nigeria, canada'~~
+
+
+### Output:
+
+```
+North America
+===============
+Canada
+
+
+South America
+===============
+
+
+Asia
+===============
+
+
+Australia
+===============
+
+
+Africa
+===============
+Nigeria
+
+
+Europe
+===============
+
+```
+
+### References:
+- [https://stackoverflow.com/questions/55910004/get-continent-name-from-country-using-pycountry](https://stackoverflow.com/questions/55910004/get-continent-name-from-country-using-pycountry)
+
+
