@@ -4,18 +4,18 @@ sort country names by continent and name order
 ## Prerequites
 pycountry
 pycountry_convert
-'''
+`
 pip3 install pycountry, pycountry_convert
-'''
+`
 
 Input:
-correct contry names sperate by ', ' 
+**Correct** country names sperate by ', ' 
 
 For example:
 'Nigeria, Canada'
 
 Output:
-'''
+`
 North America
 ===============
 Canada
@@ -40,6 +40,6 @@ Nigeria
 
 Europe
 ===============
-'''
+`
 
 
