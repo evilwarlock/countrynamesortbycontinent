@@ -1,10 +1,12 @@
 import pycountry as pc
 import pycountry_convert as pcc
+import re
 
 def sortbyContinent(input_country_names):
     """This is to sort the county names by continent"""
-    input_country_names_list = input_country_names.split(', ')
-    # print(input_country_names_list)
+    input_country_names_list = re.split("[, ]+", input_country_names)
+
+    print(input_country_names_list)
     
     continents = {'NA': 'North America', 'SA': 'South America', 'AS': 'Asia', 'OC': 'Australia', 'AF': 'Africa', 'EU': 'Europe'}
 
@@ -39,5 +41,5 @@ def sortbyContinent(input_country_names):
         else:
             print('\n')
             
-test = 'Nigeria, Canada'
+test = 'Nigeria, Canada,Japan'
 sortbyContinent(test)
