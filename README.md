@@ -1,5 +1,7 @@
 # Sort the input contry names by continent and alphabetical order
-This script is to sort country names by continent and alphabetical order
+This project starts when I am trying to figure out which countries/institution have cited my paper, I could not find a converter to sort them by the country and plot them to show the significance of my research work.
+
+future work may include the automation part via google scholar
 
 ### Prerequites:
 - pycountry
@@ -10,7 +12,7 @@ pip3 install pycountry, pycountry_convert
 `
 
 ### Input:
-**Correct** country names sperate by ', ' 
+**Correct** country names sperate by ',' (updated with pretty much any common delimeters) 
 
 
 For example:
