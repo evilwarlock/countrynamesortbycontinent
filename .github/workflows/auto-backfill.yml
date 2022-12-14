@@ -1,0 +1,62 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: 'Backfill collectors automation'
+env:
+  DEBUG_LOGGING: ${{ github.event.inputs.debug_logging || 'false' }}
+  USER_NAME : ${{ github.actor }}
+  SILENCE_NOMAD_DC: ${{ github.event.inputs.silence_nomad_dc }}
+  SILENCE_VMCLUSTER_NAME: ${{ github.event.inputs.silence_vmcluster_name }}
+  SILENCE_COMMENT: ${{ github.event.inputs.silence_comment }}
+  SILENCE_DURATION: ${{ github.event.inputs.silence_duration }}
+  SILENCE_CONDITIONS: ${{ github.event.inputs.silence_conditions }}
+  SWITCH_DS_NAME: ${{ github.event.inputs.switch_ds_name }}
+  SWITCH_DS_TO_DC: ${{ github.event.inputs.switch_ds_to_dc }}
+
+on:
+  workflow_dispatch:
+    # More info on input-context: https://docs.github.com/en/actions/learn-github-actions/contexts#inputs-context
+    # https://github.blog/changelog/2021-11-10-github-actions-input-types-for-manual-workflows/
+    inputs:
+      debug_logging:
+        description: 'Enable verbose logging'
+        default: false
+        type: boolean
+      Rcity_url:
+        description: 'the chart you would like to backfill, eg. https://rcity.simulping.com/c526/player-count-by-datacenter'
+        required: true
+        type: string 
+      namespace:
+        description: 'the namespace if known'
+        required: false
+        type: string 
+      measurement:
+        description: 'the measurement if known'
+        required: false
+        type: string 
+      generate_query:
+        description: 'true if you want to generate the query for Grafana'
+        required: false
+        type: string 
+      
+jobs:
+  alert-operations:
+    runs-on: [self-hosted, linux]
+    container:
+      image: docker.artifactory.rbx.com/python:3.10.8
+    steps:
+      # https://github.rbx.com/Roblox/cleanup-action
+      - name: 'Cleanup'
+        uses: Roblox/cleanup-action@v2
+
+      - name: 'Checkout'
+        uses: actions/checkout@v2
+
+      - name: 'Install Dependencies'
+        run: |
+          apt update && apt install dnsutils -y
+          pip install requests
+      
+      - name: 'Run Alert Ops'
+        run: |
+          GRAFANA_DS_API_TOKEN="${{ secrets.GRAFANA_DS_API_TOKEN }}" python .github/scripts/alert_ops/alert_ops.py
