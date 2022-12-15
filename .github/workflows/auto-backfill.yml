@@ -26,15 +26,23 @@ on:
         description: 'the chart you would like to backfill, eg. https://rcity.simulping.com/c526/player-count-by-datacenter'
         required: true
         type: string 
-      namespace:
+      Namespace:
         description: 'the namespace if known'
         required: false
         type: string 
-      measurement:
+      Measurement:
         description: 'the measurement if known'
         required: false
         type: string 
-      generate_query:
+      StartTime:
+        description: 'backfill start time'
+        required: true
+        type: string 
+      EndTime:
+        description: 'backfill end time'
+        required: true
+        type: string   
+      Generate_query:
         description: 'true if you want to generate the query for Grafana'
         required: false
         type: string 
